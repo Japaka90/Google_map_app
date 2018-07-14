@@ -1,0 +1,1 @@
+export const geoCodingKey = 'AIzaSyCg2JeuMhWtxzQFYPanqeND-lGBFapRI-w'
