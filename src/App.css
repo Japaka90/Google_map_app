@@ -15,6 +15,10 @@
   width: 40%;
 }
 
+.listBlock ul {
+  padding-left: 10px;
+}
+
 .appInput{
   width: 80%;
 }

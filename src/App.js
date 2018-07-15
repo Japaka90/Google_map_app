@@ -4,7 +4,8 @@ import './App.css';
 import MapWrapper from './components/map/MapWrapper';
 import SearchInput from './components/locationList/searchInput';
 import LocationList from './components/locationList/locationList';
-import Header from './components/common/header'
+import Header from './components/common/header';
+import SortableList from './components/locationList/sortableList';
 
 class App extends Component {
   render() {
@@ -14,7 +15,8 @@ class App extends Component {
         <div className="main">
           <div className="listBlock">
             <SearchInput />
-            <LocationList />
+            {/* <LocationList /> */}
+            <SortableList />
           </div>
           <MapWrapper />        
         </div>

@@ -1,14 +1,14 @@
 import React from "react";
-import PropTypes from 'prop-types';
+import {SortableContainer, SortableElement, arrayMove} from 'react-sortable-hoc';
 
-const LocationItem = ({ onClick, id, text }) => {
+const LocationItem = ({ id, text, onClick }) => {
   
   const handleClick = () => {
     onClick(id)
   }
 
   return(
-    <span>
+    <p>
       {text} 
       <span 
         onClick={handleClick}
@@ -16,8 +16,9 @@ const LocationItem = ({ onClick, id, text }) => {
       >
         x
       </span>
-    </span>
+    </p>
   )};
   
-   
-  export default LocationItem;
+  const LocationSortableItem = SortableElement(LocationItem)
+
+  export default LocationSortableItem;

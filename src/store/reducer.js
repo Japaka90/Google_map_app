@@ -17,7 +17,7 @@ function markers(state = [
         index === action.index ? { ...marker, name: action.name, lat: action.lat, lng: action.lng } : marker
       );
     case 'CHANGE_ORDER':
-      return [ ...state];
+      return [ ...action.arr];
     case 'DELETE_LOCATION':
       for (let i = 0; i < state.length; i += 1) {
         if (state[i].id === action.id) {
