@@ -8,20 +8,24 @@ import { addLocation } from '../../store/actions';
 class SearchInput extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {value: ''};
+        this.state = {
+            value: '',
+            errorMessage: null
+        };
     }
 
     handleChange = (e) => {
+        this.state.errorMessage !== null ? this.setState({errorMessage: null}) : null;
         this.setState({value: e.target.value});
     }
 
-    handleSubmit = (e) => {
+    handleSubmit = (e) => {        
         if(e.key === 'Enter') {
             axios.get(`http://maps.googleapis.com/maps/api/geocode/json?&address=${this.state.value}&sensor=false&language=ru`)
             .then(res => {
               const location = res.data.results;
               if (location.length === 0) {
-                //   TODO: добавить обработку несуществующего или ненайденного адреса
+                this.setState({errorMessage: 'Адрес не найден. Попробуйте ввести другое название'})
                 console.log('no address');
                 return null
               }
@@ -30,19 +34,25 @@ class SearchInput extends React.Component {
                const lat = location[0].geometry.location.lat;
                const lng = location[0].geometry.location.lng;
                this.props.dispatch(addLocation(name, lat, lng));
-               this.setState({value: ''});
+               this.setState({
+                   value: '',
+                   errorMessage: null
+                });
             })
         }      
     }
 
     render() {
         return(
-            <input 
+            <React.Fragment>
+            <input className="appInput"
             type="text"
             value={this.state.value}
             onChange={this.handleChange}
             onKeyPress={this.handleSubmit}
             />
+            {this.state.errorMessage && <p className="errorMessage">{this.state.errorMessage}</p>}
+            </React.Fragment>
         )
     }
 }  

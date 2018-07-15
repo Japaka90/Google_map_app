@@ -1,8 +1,40 @@
 .App {
-  text-align: center;
+  margin: 10px;
+}
+
+.main{
+  display: flex;
+}
+
+.header {
+  text-align: center; 
+}
+
+.listBlock {
+  display: inline-block;
+  width: 40%;
+}
+
+.appInput{
+  width: 80%;
+}
+
+.locationItem{
+  font-size: 12px;
+  padding: 5px;
 }
 
 .delete-icon {
+  font-weight: 600;
   cursor: pointer;
   margin-left: 10px;
+}
+
+.delete-icon:hover {
+  color: blue
+}
+
+.errorMessage {
+  color: red;
+  font-size: 10px;
 }

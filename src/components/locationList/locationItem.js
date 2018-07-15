@@ -1,21 +1,23 @@
 import React from "react";
 import PropTypes from 'prop-types';
 
-const LocationItem = ({ onClick, text }) => (
+const LocationItem = ({ onClick, id, text }) => {
+  
+  const handleClick = () => {
+    onClick(id)
+  }
+
+  return(
     <span>
       {text} 
       <span 
-        onClick={onClick}
+        onClick={handleClick}
         className="delete-icon"
       >
         x
       </span>
     </span>
-  );
+  )};
   
-  LocationItem.propTypes = {
-    onClick: PropTypes.func.isRequired,
-    text: PropTypes.node.isRequired
-  };
-  
+   
   export default LocationItem;

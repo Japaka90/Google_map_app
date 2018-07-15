@@ -5,31 +5,34 @@ import LocationItem from './locationItem'
 import { deleteLocation } from '../../store/actions'
 
 class LocationList extends React.Component {
-    itemClick = () => {
-        
+    itemDelete = (id) => {
+      this.props.dispatch(deleteLocation(id))
     }
 
     render() {
         return(
-           <ul>
-               {this.props.markers.map(item => (
-                <li key={`${item.lat}-${item.lng}-li`}>
-                   
-                   <LocationItem
+            <ul>
+                {this.props.markers.map(item => (
+                <li 
+                    key={`${item.id}-li`}
+                    className="locationItem"
+                >                    
+                    <LocationItem
+                    id={item.id}
                     text={item.name}
-                    onClick={this.itemClick}
-                   />
+                    onClick={this.itemDelete}
+                    />
                     
                 </li>
                 ))}
-           </ul>
+            </ul>
         )
     }
 }
 
 const mapStateToProps = state => ({
     markers: state
-  });
+});
 
   
 const LocationListWrapper = connect(mapStateToProps)(LocationList);

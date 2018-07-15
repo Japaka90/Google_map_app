@@ -1,5 +1,15 @@
+const locationId = {
+  currentId: 0
+};
+
+const countNextId = () => {
+  locationId.currentId += 1;
+  return locationId.currentId;
+};
+
 export const addLocation = (name, lat, lng) => ({
   type: 'ADD_LOCATION',
+  id: countNextId(),
   name,
   lat,
   lng
@@ -13,9 +23,8 @@ export const changeLocation = (index, name, lat, lng) => ({
   lng
 });
 
-export const changeOrder = id => ({
-  type: 'CHANGE_ORDER',
-  id
+export const changeOrder = () => ({
+  type: 'CHANGE_ORDER'
 });
 
 export const deleteLocation = id => ({

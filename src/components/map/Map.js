@@ -20,25 +20,24 @@ const Map = compose(
   >
     {props.markers.map((item, index) => (
       <Marker
-      key={`${item.lat}-${item.lng}`}
+      key={`${item.id}-Marker`}
       position={{ lat: item.lat, lng: item.lng }}
       onClick={props.onMarkerClick}
       draggable
       onDragEnd={props.onDragEnd(index)}/>))}
 
     {props.markers.map((item, index) => (
-      index > 1 ?
+      index > 0 ?
       <Polyline 
-      key={`${props.markers[0].lat},props.markers[0].lng:${item.lat},${item.lng}`} 
+      key={`${item.id}-Polyline`} 
       path={ 
         [{ lat: props.markers[index-1].lat, lng: props.markers[index-1].lng },
         { lat: item.lat, lng: item.lng }] 
       }/>
       : null
      ))}
-      
-    <Polyline path={ [{ lat: props.markers[0].lat, lng: props.markers[0].lng },
-     { lat: props.markers[1].lat, lng: props.markers[1].lng }] }/>
+
+    
   </GoogleMap>
 );
 

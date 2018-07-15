@@ -32,7 +32,6 @@ class MapWrapper extends React.PureComponent {
 
 
   render() {
-    console.log(this.props, 'props')
     return (
       <Map
         markers={this.props.markers}
