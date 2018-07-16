@@ -25,11 +25,10 @@ class SearchInput extends React.Component {
             .then(res => {
               const location = res.data.results;
               if (location.length === 0) {
-                this.setState({errorMessage: 'Адрес не найден. Попробуйте ввести другое название'})
+                this.setState({errorMessage: 'Адрес не найден. Попробуйте ещё раз или введите другое название'})
                 console.log('no address');
                 return null
-              }
-               console.log(location, 777);
+              }               
                const name = location[0].formatted_address;
                const lat = location[0].geometry.location.lat;
                const lng = location[0].geometry.location.lng;
@@ -46,10 +45,11 @@ class SearchInput extends React.Component {
         return(
             <React.Fragment>
             <input className="appInput"
-            type="text"
-            value={this.state.value}
-            onChange={this.handleChange}
-            onKeyPress={this.handleSubmit}
+                type="text"
+                placeholder="Новая точка маршрута"
+                value={this.state.value}
+                onChange={this.handleChange}
+                onKeyPress={this.handleSubmit}
             />
             {this.state.errorMessage && <p className="errorMessage">{this.state.errorMessage}</p>}
             </React.Fragment>

@@ -15,7 +15,7 @@ class SortableComponent extends React.PureComponent {
     }
 
     componentWillReceiveProps(nextProps) {
-        if(this.props != nextProps) {
+        if(this.props !== nextProps) {
             this.setState({
                 items: nextProps.markers
             });

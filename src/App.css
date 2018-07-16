@@ -16,7 +16,14 @@
 }
 
 .listBlock ul {
-  padding-left: 10px;
+  padding-left: 0px;
+  list-style-type: none;
+  height: 600px;
+  overflow: auto;
+}
+
+.listBlock p {
+  margin: 0;
 }
 
 .appInput{
@@ -26,12 +33,14 @@
 .locationItem{
   font-size: 12px;
   padding: 5px;
+  cursor: move;
 }
 
 .delete-icon {
   font-weight: 600;
   cursor: pointer;
   margin-left: 10px;
+  color: red;
 }
 
 .delete-icon:hover {
@@ -39,6 +48,13 @@
 }
 
 .errorMessage {
+  width: 80%;
   color: red;
   font-size: 10px;
+  padding-top: 5px;
+  padding-left: 2px;
+}
+
+.infoWindowText {
+  font-size: 12px;
 }

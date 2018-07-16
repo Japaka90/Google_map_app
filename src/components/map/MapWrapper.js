@@ -1,5 +1,4 @@
 import React from "react";
-import { compose } from 'recompose';
 import { connect } from 'react-redux';
 import axios from 'axios';
 
@@ -13,7 +12,6 @@ class MapWrapper extends React.PureComponent {
     return (e) => {
       const newlat = e.latLng.lat();
       const newlng = e.latLng.lng();
-      console.log(e, e.latLng.lat(), e.latLng.lng());
 
       axios.get(`https://maps.googleapis.com/maps/api/geocode/json?key=${geoCodingKey}&latlng=${newlat},${newlng}&sensor=false&language=ru`)
       .then(res => {
@@ -22,14 +20,11 @@ class MapWrapper extends React.PureComponent {
           console.log('error');
           return null
         }
-        const name = res.data.results[1].formatted_address;
-        
-         console.log(name, 888);
-         this.props.dispatch(changeLocation(index, name, newlat, newlng))
+        const name = res.data.results[1].formatted_address;      
+        this.props.dispatch(changeLocation(index, name, newlat, newlng))
       })
     }
   }
-
 
   render() {
     return (
@@ -45,9 +40,6 @@ const mapStateToProps = (state, ownProps) => ({
    markers: state
 });
 
-const enhance = compose(
-  connect(mapStateToProps)
-);
+const MapWrapperComponent = connect(mapStateToProps)(MapWrapper);
 
-
-export default enhance(MapWrapper);
+export default MapWrapperComponent;

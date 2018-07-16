@@ -1,7 +1,17 @@
-function markers(state = [
-    { id: -1, name: 1, lat: -34.397, lng: 150.644 },
-    { id: -2, name: 2, lat: -33.397, lng: 150.544 }
-  ], action) {
+const InitialState = [
+  { id: -1, 
+    name: 'Сидней Нов. Юж. Уэльс, Австралия', 
+    lat: -33.86215333513014, 
+    lng: 151.2152890625
+  },
+  { id: -2, 
+    name: 'Канангра Нов. Юж. Уэльс 2787, Австралия', 
+    lat: -33.959256246559214, 
+    lng: 150.08806738281248
+  }
+];
+
+function markers(state = InitialState, action) {
   switch (action.type) {
     case 'ADD_LOCATION':
       return [ ...state,

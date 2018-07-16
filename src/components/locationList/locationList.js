@@ -1,7 +1,5 @@
 import React from "react";
-import { connect } from 'react-redux';
-import {SortableContainer, SortableElement, arrayMove} from 'react-sortable-hoc';
-
+import { SortableContainer } from 'react-sortable-hoc';
 
 import LocationItem from './locationItem'
 import { deleteLocation } from '../../store/actions'
