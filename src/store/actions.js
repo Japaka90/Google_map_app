@@ -1,5 +1,5 @@
 const locationId = {
-  currentId: 0
+  currentId: 0,
 };
 
 const countNextId = () => {
@@ -12,7 +12,7 @@ export const addLocation = (name, lat, lng) => ({
   id: countNextId(),
   name,
   lat,
-  lng
+  lng,
 });
 
 export const changeLocation = (index, name, lat, lng) => ({
@@ -20,21 +20,21 @@ export const changeLocation = (index, name, lat, lng) => ({
   index,
   name,
   lat,
-  lng
+  lng,
 });
 
 export const changeOrder = arr => ({
   type: 'CHANGE_ORDER',
-  arr
+  arr,
 });
 
 export const deleteLocation = id => ({
   type: 'DELETE_LOCATION',
-  id
+  id,
 });
 
 export const changeMapCenter = (lat, lng) => ({
   type: 'CHANGE_MAP_CENTER',
   lat,
-  lng
-})
+  lng,
+});

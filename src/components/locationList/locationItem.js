@@ -1,24 +1,21 @@
-import React from "react";
+import React from 'react';
 import { SortableElement } from 'react-sortable-hoc';
 
 const LocationItem = ({ id, text, onClick }) => {
-  
   const handleClick = () => {
-    onClick(id)
-  }
+    onClick(id);
+  };
 
-  return(
+  return (
     <p>
-      {text} 
-      <span 
-        onClick={handleClick}
-        className="delete-icon"
-      >
+      {text}
+      <span onClick={handleClick} className="delete-icon">
         x
       </span>
     </p>
-  )};
-  
-  const LocationSortableItem = SortableElement(LocationItem)
+  );
+};
 
-  export default LocationSortableItem;
+const LocationSortableItem = SortableElement(LocationItem);
+
+export default LocationSortableItem;

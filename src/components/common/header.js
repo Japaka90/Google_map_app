@@ -1,8 +1,5 @@
-import React from "react";
+import React from 'react';
 
-const Header = () => (
-   <h1 className="header">Редактор маршрутов</h1>
-  );
-  
-   
-  export default Header;
+const Header = () => <h1 className="header">Редактор маршрутов</h1>;
+
+export default Header;
