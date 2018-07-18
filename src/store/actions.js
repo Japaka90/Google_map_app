@@ -23,7 +23,7 @@ export const changeLocation = (index, name, lat, lng) => ({
   lng
 });
 
-export const changeOrder = (arr) => ({
+export const changeOrder = arr => ({
   type: 'CHANGE_ORDER',
   arr
 });
@@ -32,3 +32,9 @@ export const deleteLocation = id => ({
   type: 'DELETE_LOCATION',
   id
 });
+
+export const changeMapCenter = (lat, lng) => ({
+  type: 'CHANGE_MAP_CENTER',
+  lat,
+  lng
+})

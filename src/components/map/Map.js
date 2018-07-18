@@ -1,6 +1,6 @@
 import React from "react";
-import { compose, withProps, withStateHandlers } from "recompose";
-import { withScriptjs, withGoogleMap, GoogleMap, Marker, Polyline, InfoWindow  } from "react-google-maps";
+import { compose, withProps } from "recompose";
+import { withScriptjs, withGoogleMap, GoogleMap, Polyline } from "react-google-maps";
 
 import MarkerWithInfo from './Marker';
 
@@ -14,20 +14,16 @@ const Map = compose(
   withScriptjs,
   withGoogleMap
 )((props) =>{  
-  const { markers } = props;
+  const { markers, mapCenter } = props;
 
   return(
     <GoogleMap
       defaultZoom={8}
-      defaultCenter = {{ lat: -34.397, lng: 150.644 }}
-      center={
-        markers.length 
-        ? { lat: markers[markers.length-1].lat, lng: markers[markers.length-1].lng } 
-        : null
-      }      
+      center={mapCenter}      
     >
       {markers.map((item, index) => (     
         <MarkerWithInfo 
+          key={`${item.id}-Marker`}
           item={item}
           onDragEnd={props.onDragEnd(index)}
         />

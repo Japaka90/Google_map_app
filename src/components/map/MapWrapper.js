@@ -15,9 +15,8 @@ class MapWrapper extends React.PureComponent {
 
       axios.get(`https://maps.googleapis.com/maps/api/geocode/json?key=${geoCodingKey}&latlng=${newlat},${newlng}&sensor=false&language=ru`)
       .then(res => {
-        console.log(res.data, 8888)
         if(res.data.results.length === 0) {
-          console.log('error');
+          console.log('geocoding error');
           return null
         }
         const name = res.data.results[1].formatted_address;      
@@ -30,6 +29,7 @@ class MapWrapper extends React.PureComponent {
     return (
       <Map
         markers={this.props.markers}
+        mapCenter={this.props.mapCenter}
         onDragEnd={this.onMarkerPositionChanged}
       />
     )
@@ -37,7 +37,8 @@ class MapWrapper extends React.PureComponent {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-   markers: state
+   markers: state.markers,
+   mapCenter: state.mapCenter
 });
 
 const MapWrapperComponent = connect(mapStateToProps)(MapWrapper);

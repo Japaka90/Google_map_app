@@ -25,8 +25,7 @@ class MarkerWithInfo extends React.Component {
     render() {
         const { item, onDragEnd } = this.props;    
         return (
-                <Marker
-                    key={`${item.id}-Marker`}
+                <Marker                    
                     position={{ lat: item.lat, lng: item.lng }}
                     onClick={this.handleToggle}
                     draggable

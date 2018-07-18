@@ -1,3 +1,5 @@
+import { combineReducers } from 'redux';
+
 const InitialState = [
   { id: -1, 
     name: 'Сидней Нов. Юж. Уэльс, Австралия', 
@@ -40,4 +42,20 @@ function markers(state = InitialState, action) {
   }
 }
 
-export default markers;
+function mapCenter(state={ lat: -34.397, lng: 150.644 }, action){
+  switch (action.type) {
+    case 'CHANGE_MAP_CENTER':
+      return {lat: action.lat, lng: action.lng}
+    default:
+      return state;
+  }
+}
+
+
+const mapReducer = combineReducers({
+  markers,
+  mapCenter
+});
+
+export default mapReducer;
+

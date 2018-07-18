@@ -48,7 +48,7 @@ class SortableComponent extends React.PureComponent {
 
 
 const mapStateToProps = state => ({
-    markers: state
+    markers: state.markers
 });
   
 const SortableComponentWrapper = connect(mapStateToProps)(SortableComponent);

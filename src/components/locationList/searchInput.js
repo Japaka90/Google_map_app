@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 
-import { addLocation } from '../../store/actions';
+import { addLocation,  changeMapCenter} from '../../store/actions';
 
 class SearchInput extends React.Component {
     constructor(props) {
@@ -26,13 +26,13 @@ class SearchInput extends React.Component {
               const location = res.data.results;
               if (location.length === 0) {
                 this.setState({errorMessage: 'Адрес не найден. Попробуйте ещё раз или введите другое название'})
-                console.log('no address');
                 return null
               }               
                const name = location[0].formatted_address;
                const lat = location[0].geometry.location.lat;
                const lng = location[0].geometry.location.lng;
                this.props.dispatch(addLocation(name, lat, lng));
+               this.props.dispatch(changeMapCenter(lat, lng))
                this.setState({
                    value: '',
                    errorMessage: null
