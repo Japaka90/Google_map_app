@@ -1,5 +1,6 @@
 import React from 'react';
 import { SortableContainer } from 'react-sortable-hoc';
+import PropTypes from 'prop-types';
 
 import LocationItem from './locationItem';
 import { deleteLocation } from '../../store/actions';
@@ -23,6 +24,11 @@ const LocationList = ({ items, dispatch }) => {
       ))}
     </ul>
   );
+};
+
+LocationList.propTypes = {
+  items: PropTypes.array.isRequired,
+  dispatch: PropTypes.func.isRequired
 };
 
 const LocationSortableList = SortableContainer(LocationList);

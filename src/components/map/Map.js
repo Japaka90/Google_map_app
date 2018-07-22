@@ -49,4 +49,10 @@ const Map = compose(
   );
 });
 
+Map.propTypes = {
+  markers: PropTypes.array.isRequired,
+  mapCenter: PropTypes.object.isRequired,
+  onDragEnd: PropTypes.func.isRequired
+};
+
 export default Map;

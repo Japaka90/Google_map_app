@@ -42,7 +42,6 @@ class MarkerWithInfo extends React.Component {
 }
 
 MarkerWithInfo.propTypes = {
-  key: PropTypes.string.isRequired,
   item: PropTypes.object.isRequired,
   onDragEnd: PropTypes.func.isRequired,
 };
