@@ -3,13 +3,13 @@ import { combineReducers } from 'redux';
 const InitialState = [
   {
     id: -1,
-    name: 'Сидней Нов. Юж. Уэльс, Австралия',
+    name: 'Sydney NSW, Australia',
     lat: -33.86215333513014,
     lng: 151.2152890625,
   },
   {
     id: -2,
-    name: 'Канангра Нов. Юж. Уэльс 2787, Австралия',
+    name: 'Kanangra NSW, Australia',
     lat: -33.959256246559214,
     lng: 150.08806738281248,
   },

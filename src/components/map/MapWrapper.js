@@ -14,7 +14,7 @@ class MapWrapper extends React.PureComponent {
 
       axios
         .get(
-          `https://maps.googleapis.com/maps/api/geocode/json?key=${geoCodingKey}&latlng=${newlat},${newlng}&sensor=false&language=ru`
+          `https://maps.googleapis.com/maps/api/geocode/json?key=${geoCodingKey}&latlng=${newlat},${newlng}&sensor=false&language=en`
         )
         .then(res => {
           if (res.data.results.length === 0) {

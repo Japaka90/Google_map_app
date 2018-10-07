@@ -14,7 +14,6 @@ class App extends Component {
         <div className="main">
           <div className="listBlock">
             <SearchInput />
-            {/* <LocationList /> */}
             <SortableList />
           </div>
           <MapWrapper />        

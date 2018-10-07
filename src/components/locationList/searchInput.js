@@ -25,16 +25,16 @@ class SearchInput extends React.Component {
     if (e.key === 'Enter') {
       axios
         .get(
-          `http://maps.googleapis.com/maps/api/geocode/json?&address=${
+          `https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyA303zw7b0DOavsL0vRzVSgDC_BqYzIdQI&address=${
             this.state.value
-          }&sensor=false&language=ru`
+          }&sensor=false&language=en`
         )
         .then(res => {
           const location = res.data.results;
           if (location.length === 0) {
             this.setState({
               errorMessage:
-                'Адрес не найден. Попробуйте ещё раз или введите другое название',
+                'Address is not found. Try again or enter another location name.',
             });
             return null;
           }
@@ -57,7 +57,7 @@ class SearchInput extends React.Component {
         <input
           className="appInput"
           type="text"
-          placeholder="Новая точка маршрута"
+          placeholder="Add new waypoint"
           value={this.state.value}
           onChange={this.handleChange}
           onKeyPress={this.handleSubmit}
@@ -73,6 +73,10 @@ class SearchInput extends React.Component {
 const mapDispatchToProps = dispatch => ({
   dispatch,
 });
+
+SearchInput.propTypes = {
+  dispatch: PropTypes.func.isRequired
+};
 
 const SearchInputContainer = connect(mapDispatchToProps)(SearchInput);
 

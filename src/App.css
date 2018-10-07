@@ -28,6 +28,7 @@
 
 .appInput{
   width: 80%;
+  padding-left: 2px;
 }
 
 .locationItem{
@@ -58,3 +59,4 @@
 .infoWindowText {
   font-size: 12px;
 }
+

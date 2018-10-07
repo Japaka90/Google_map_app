@@ -13,7 +13,7 @@ import MarkerWithInfo from './Marker';
 const Map = compose(
   withProps({
     googleMapURL:
-      'https://maps.googleapis.com/maps/api/js?key=AIzaSyC4R6AN7SmujjPUIGKdyao2Kqitzr1kiRg&v=3.exp&libraries=geometry,drawing,places',
+      'https://maps.googleapis.com/maps/api/js?key=AIzaSyA303zw7b0DOavsL0vRzVSgDC_BqYzIdQI&v=3.exp&libraries=geometry,drawing,places&language=en',
     loadingElement: <div style={{ height: `100%` }} />,
     containerElement: <div style={{ height: `600px`, width: `800px` }} />,
     mapElement: <div style={{ height: `100%` }} />,
